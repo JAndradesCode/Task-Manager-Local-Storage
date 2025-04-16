@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager w/ Local Storage</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        .container{
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        button{
+            border: 1px solid #888;
+            border-radius: 1px;
+        }
+        button:hover{
+            border: 2px solid black;
+        }
+        .input-section{
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #task-input{
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+        }
+        #add-button{
+            padding: 10px 15px;
+            color: white;
+            background-color: #4CAF50;
+            cursor: pointer;
+        }
+        .clear-all{
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 5px;
+            cursor: pointer;
+            color: white;
+            background-color: #ff9800;
+            font-size: 16px;
+        }
+        .no-tasks{
+            text-align: center;
+            color: #888;
+            padding: 20px 0;
+        }
+        .status-bar{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-size: 16px;
+        }
+        #task-list{
+            list-style-type: none;
+        }
+        .task-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #f9f9f9;
+            margin-bottom: 8px;
+        }
+        .task-text{
+            flex:1;
+            margin-left: 10px;
+        }
+        .completed{
+            text-decoration: line-through;
+            color:#888;
+        }
+        .delete-btn{
+            color: white;
+            background-color: #f44336;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Manager</h1>
+
+        <div class="input-section">
+            <input type="text" id="task-input" placeholder="Add a new task...">
+            <button id="add-button">Add</button>
+        </div>
+
+        <ul id="task-list">
+            <!--tasks will be added here dynamically-->
+        </ul>
+
+        <div id="no-tasks" class="no-tasks">
+            <i>No tasks yet... Add a task to get started.</i>
+        </div>
+
+        <div class="status-bar">
+            <span id="tasks-count">Total : 0 tasks</span>
+            <span id="completed-count">Completed : 0 tasks</span>
+        </div>
+
+        <button id="clear-all" class="clear-all" onclick="clearAllTasks()">Clear All Tasks</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
